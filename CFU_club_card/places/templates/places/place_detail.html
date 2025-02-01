@@ -1,0 +1,134 @@
+{% extends 'places/base.html' %}
+
+{%block style%}
+<style>
+    .slider {
+      position: relative;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+    .dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .dot.active {
+      background-color: #717171;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f2f3f3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1d2938;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+   </style>
+{%endblock%}
+
+{%block content%}
+<body class="font-roboto bg-[#f2f3f3]">
+    <div class="container mx-auto p-4">
+     <!-- Title -->
+     <h1 class="text-4xl font-bold text-center mb-6 text-[#1d2938]">
+      {{place.name}}
+     </h1>
+     <!-- Slider -->
+     <div class="slider relative w-full max-w-4xl mx-auto mb-6">
+      <div class="slides flex">
+       <div class="slide">
+        {%for image in place.images.all%}
+        <img alt="Image of the establishment's interior with modern decor" class="w-full h-auto rounded-lg shadow-md" height="400" src="{{ image.image.url }}" width="600"/>
+        {%endfor%}
+       </div>
+      </div>
+      <div class="dots">
+       <span class="dot active"></span>
+       <span class="dot"></span>
+       <span class="dot"></span>
+      </div>
+     </div>
+     <!-- Description -->
+     <div class="bg-[#1d2938] p-6 rounded-lg shadow-md mb-6">
+      <h2 class="text-2xl font-bold mb-4 text-white">
+       Описание
+      </h2>
+      <p class="text-gray-300">
+       {{place.description}}
+      </p>
+     </div>
+     <!-- Addresses -->
+     <div class="bg-[#1d2938] p-6 rounded-lg shadow-md mb-6">
+      <h2 class="text-2xl font-bold mb-4 text-white">
+       Адреса
+      </h2>
+      <ul class="list-disc list-inside text-gray-300">
+        {%for address in place.addresses.all%}
+       <li>
+        {{address.address}}
+       </li>
+       {%endfor%}
+      </ul>
+     </div>
+     <!-- QR Code -->
+      {%if place.promotion_image%}
+     <div class="bg-[#1d2938] p-6 rounded-lg shadow-md flex justify-center">
+      <img alt="QR code for the establishment's website or menu" class="w-48 h-48" height="200" src="{{place.promotion_image.url}}" width="200"/>
+     </div>
+     {%else%}
+     <div class="bg-[#1d2938] p-6 rounded-lg shadow-md mb-6">
+      <p class="text-gray-300">
+       {{place.promotion_text}}
+      </p>
+     </div>
+    {%endif%}
+    </div>
+    <script>
+     let slideIndex = 0;
+     const slides = document.querySelectorAll('.slide');
+     const dots = document.querySelectorAll('.dot');
+  
+     function showSlides() {
+       slides.forEach((slide, index) => {
+         slide.style.transform = `translateX(${-slideIndex * 100}%)`;
+       });
+       dots.forEach((dot, index) => {
+         dot.classList.remove('active');
+         if (index === slideIndex) {
+           dot.classList.add('active');
+         }
+       });
+     }
+  
+     function nextSlide() {
+       slideIndex = (slideIndex + 1) % slides.length;
+       showSlides();
+     }
+  
+     setInterval(nextSlide, 5000);
+     showSlides();
+    </script>
+   </body>
+{%endblock%}

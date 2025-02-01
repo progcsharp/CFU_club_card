@@ -1,0 +1,105 @@
+{% extends 'places/base.html' %}
+
+{%block style%}
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #a14646;
+            color: white;
+        }
+
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #3b3f44;
+            border-radius: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+        .rounded-t-lg{
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+        .h-40 {
+            height: 14rem;
+        }
+  </style>
+{%endblock%}
+{%block content%}
+ <body class="bg-gray-100 p-4">
+  <div class="max-w-4xl mx-auto">
+   <!-- Filter Form -->
+   <div class="bg-gray-800 p-6 rounded-lg shadow-md mb-6">
+    <h2 class="text-2xl font-bold mb-4 text-white">
+     Фильтрация
+    </h2>
+    <form class="space-y-4">
+     <div>
+      <label class="block text-sm font-medium text-gray-300" for="search">
+       Поиск
+      </label>
+      <input class="mt-1 block w-full p-2 border border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-700 text-white" id="search" name="search" type="text"/>
+     </div>
+     <div>
+      <label class="block text-sm font-medium text-gray-300" for="category">
+       Категории
+      </label>
+      <select class="mt-1 block w-full p-2 border border-gray-600 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-700 text-white" id="category" name="category">
+       <option>
+        Все категории
+       </option>
+       <option>
+        Restaurant
+       </option>
+       <option>
+        Cafe
+       </option>
+       <option>
+        Bar
+       </option>
+       <option>
+        Shop
+       </option>
+      </select>
+     </div>
+     <button class="w-full bg-blue-500 text-white p-2 rounded-md shadow-md hover:bg-blue-600" type="submit">
+      Найти
+     </button>
+    </form>
+   </div>
+   <!-- Cards -->
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Card 1 -->
+    {%for place in places%}
+
+    <a class="bg-gray-800 p-4 rounded-lg shadow-md block hover:bg-gray-700 transition" href="{% url 'place_detail' place.id %}">
+     <img alt="Image of a cozy restaurant with wooden tables and ambient lighting" class="w-full h-40 object-cover rounded-t-lg" height="200" src="{{place.preview_photo.url}}" width="300"/>
+     <div class="p-4">
+      <h3 class="text-xl font-bold mb-2 text-white">
+      {{place.name}}  
+      </h3>
+      <p class="text-gray-300">
+       {{place.short_description}}
+      </p>
+      <button class="w-full bg-blue-500 text-white p-2 rounded-md shadow-md hover:bg-blue-600 mt-4" type="button">
+       Открыть
+      </button>
+     </div>
+    </a>
+
+    {% endfor %}
+    <!-- Card 2 -->
+    
+   </div>
+  </div>
+ </body>
+{%endblock%}
