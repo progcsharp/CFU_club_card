@@ -83,22 +83,86 @@
                         {%endfor%}
                     </ul>
                 </div>
-                <!-- QR Code -->
-                {%if place.promotion_image%}
-                <div
-                    class="bg-[#1d2938] p-6 rounded-lg shadow-md flex justify-center"
-                >
-                    <img
-                        alt="QR code for the establishment's website or menu"
-                        class="w-48 h-48"
-                        height="200"
-                        src="{{place.promotion_image.url}}"
-                        width="200"
-                    />
+                <!-- Conditions -->
+                <div class="bg-[#1d2938] p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-4 text-white">
+                        Условия акции
+                    </h2>
+                    <ul class="list-disc list-inside text-gray-300">
+                        <li>Условие 1</li>
+                        <li>Условие 2</li>
+                        <li>Условие 3</li>
+                        <li>Условие 4</li>
+                    </ul>
                 </div>
             </div>
+            <!-- Popup btn -->
+            <button
+                class="popup-btn w-full justify-center bg-[#1d2938] transition hover:bg-blue-600 p-2 rounded-lg shadow-md font-normal flex items-center gap-2 text-white text-lg"
+            >
+                Подробнее
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M12.5932 23.2579L12.5822 23.2599L12.5112 23.2949L12.4912 23.2989L12.4772 23.2949L12.4062 23.2599C12.3955 23.2566 12.3875 23.2583 12.3822 23.2649L12.3782 23.2749L12.3612 23.7029L12.3662 23.7229L12.3762 23.7359L12.4802 23.8099L12.4952 23.8139L12.5072 23.8099L12.6112 23.7359L12.6232 23.7199L12.6272 23.7029L12.6102 23.2759C12.6075 23.2653 12.6018 23.2593 12.5932 23.2579ZM12.8582 23.1449L12.8452 23.1469L12.6602 23.2399L12.6502 23.2499L12.6472 23.2609L12.6652 23.6909L12.6702 23.7029L12.6782 23.7099L12.8792 23.8029C12.8918 23.8063 12.9015 23.8036 12.9082 23.7949L12.9122 23.7809L12.8782 23.1669C12.8748 23.1549 12.8682 23.1476 12.8582 23.1449ZM12.1432 23.1469C12.1388 23.1443 12.1335 23.1434 12.1285 23.1445C12.1234 23.1456 12.119 23.1487 12.1162 23.1529L12.1102 23.1669L12.0762 23.7809C12.0768 23.7929 12.0825 23.8009 12.0932 23.8049L12.1082 23.8029L12.3092 23.7099L12.3192 23.7019L12.3232 23.6909L12.3402 23.2609L12.3372 23.2489L12.3272 23.2389L12.1432 23.1469Z"
+                        fill="white"
+                    />
+                    <path
+                        d="M12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2ZM12 4C9.87827 4 7.84344 4.84285 6.34315 6.34315C4.84285 7.84344 4 9.87827 4 12C4 14.1217 4.84285 16.1566 6.34315 17.6569C7.84344 19.1571 9.87827 20 12 20C14.1217 20 16.1566 19.1571 17.6569 17.6569C19.1571 16.1566 20 14.1217 20 12C20 9.87827 19.1571 7.84344 17.6569 6.34315C16.1566 4.84285 14.1217 4 12 4ZM7.5 10.5C7.89782 10.5 8.27936 10.658 8.56066 10.9393C8.84196 11.2206 9 11.6022 9 12C9 12.3978 8.84196 12.7794 8.56066 13.0607C8.27936 13.342 7.89782 13.5 7.5 13.5C7.10218 13.5 6.72064 13.342 6.43934 13.0607C6.15804 12.7794 6 12.3978 6 12C6 11.6022 6.15804 11.2206 6.43934 10.9393C6.72064 10.658 7.10218 10.5 7.5 10.5ZM12 10.5C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12C13.5 12.3978 13.342 12.7794 13.0607 13.0607C12.7794 13.342 12.3978 13.5 12 13.5C11.6022 13.5 11.2206 13.342 10.9393 13.0607C10.658 12.7794 10.5 12.3978 10.5 12C10.5 11.6022 10.658 11.2206 10.9393 10.9393C11.2206 10.658 11.6022 10.5 12 10.5ZM16.5 10.5C16.8978 10.5 17.2794 10.658 17.5607 10.9393C17.842 11.2206 18 11.6022 18 12C18 12.3978 17.842 12.7794 17.5607 13.0607C17.2794 13.342 16.8978 13.5 16.5 13.5C16.1022 13.5 15.7206 13.342 15.4393 13.0607C15.158 12.7794 15 12.3978 15 12C15 11.6022 15.158 11.2206 15.4393 10.9393C15.7206 10.658 16.1022 10.5 16.5 10.5Z"
+                        fill="white"
+                    />
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="overlay hidden bg-black bg-opacity-50 fixed inset-0 z-40"></div>
+    <div
+        class="popup hidden fixed inset-0 z-50 flex items-center justify-center"
+    >
+        <div
+            class="popup-container bg-[#1d2938] p-6 rounded-lg shadow-md flex justify-center relative"
+        >
+            <button
+                class="popup-close absolute top-0 right-0 -translate-y-full translate-x-full"
+            >
+                <svg
+                    width="35"
+                    height="35"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <g clip-path="url(#clip0_2334_8)">
+                        <path
+                            d="M2.92984 17.0701C1.97473 16.1476 1.21291 15.0442 0.688821 13.8241C0.164731 12.6041 -0.111131 11.2919 -0.122669 9.96409C-0.134207 8.6363 0.11881 7.3195 0.621618 6.09054C1.12443 4.86158 1.86696 3.74506 2.80589 2.80613C3.74481 1.8672 4.86133 1.12467 6.09029 0.621863C7.31926 0.119054 8.63605 -0.133963 9.96385 -0.122425C11.2916 -0.110887 12.6038 0.164975 13.8239 0.689065C15.0439 1.21316 16.1474 1.97498 17.0698 2.93008C18.8914 4.8161 19.8994 7.34212 19.8766 9.96409C19.8538 12.5861 18.8021 15.0942 16.948 16.9483C15.0939 18.8023 12.5858 19.854 9.96385 19.8768C7.34188 19.8996 4.81586 18.8917 2.92984 17.0701ZM4.33984 15.6601C5.84096 17.1612 7.87692 18.0045 9.99984 18.0045C12.1227 18.0045 14.1587 17.1612 15.6598 15.6601C17.161 14.159 18.0043 12.123 18.0043 10.0001C18.0043 7.87717 17.161 5.8412 15.6598 4.34008C14.1587 2.83895 12.1227 1.99563 9.99984 1.99563C7.87692 1.99563 5.84096 2.83895 4.33984 4.34008C2.83871 5.8412 1.99539 7.87717 1.99539 10.0001C1.99539 12.123 2.83871 14.159 4.33984 15.6601ZM14.2398 7.17008L11.4098 10.0001L14.2398 12.8301L12.8298 14.2401L9.99984 11.4101L7.16984 14.2401L5.75984 12.8301L8.58984 10.0001L5.75984 7.17008L7.16984 5.76008L9.99984 8.59008L12.8298 5.76008L14.2398 7.17008Z"
+                            fill="white"
+                        />
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_2334_8">
+                            <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                    </defs>
+                </svg>
+            </button>
+            <!-- QR Code -->
+            {%if place.promotion_image%}
+            <div>
+                <img
+                    alt="QR code for the establishment's website or menu"
+                    class="w-48 h-48"
+                    height="200"
+                    src="{{place.promotion_image.url}}"
+                    width="200"
+                />
+            </div>
             {%else%}
-            <div class="bg-[#1d2938] p-6 rounded-lg shadow-md">
+            <div class="">
                 <p class="text-gray-300">{{place.promotion_text}}</p>
             </div>
             {%endif%}
@@ -106,6 +170,43 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        const popupBtn = document.querySelector(".popup-btn");
+        const popup = document.querySelector(".popup");
+        const popupContainer = popup.querySelector(".popup-container");
+        const overlay = document.querySelector(".overlay");
+        popupBtn.addEventListener("click", () => {
+            popup.classList.toggle("hidden");
+            overlay.classList.toggle("hidden");
+            setTimeout(() => {
+                popup.classList.toggle("opened");
+            }, 200);
+            if (popup.classList.contains("hidden")) {
+                document.body.style.overflow = "auto";
+            } else {
+                document.body.style.overflow = "hidden";
+            }
+        });
+
+        document.addEventListener("click", (event) => {
+            if (
+                !popupContainer.contains(event.target) &&
+                popup.classList.contains("opened")
+            ) {
+                popup.classList.add("hidden");
+                overlay.classList.add("hidden");
+                popup.classList.remove("opened");
+                document.body.style.overflow = "auto";
+            }
+        });
+
+        const popupClose = document.querySelector(".popup-close");
+        popupClose.addEventListener("click", () => {
+            popup.classList.add("hidden");
+            overlay.classList.add("hidden");
+            popup.classList.remove("opened");
+            document.body.style.overflow = "auto";
+        });
+
         const slider = new Swiper(".slider", {
             slidesPerView: 1,
             loop: true,
