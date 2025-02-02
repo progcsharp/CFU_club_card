@@ -1,7 +1,8 @@
 # places/admin.py
 
 from django.contrib import admin
-from .models import Place, PlaceImage, PlaceAddress
+from .models import Place, PlaceImage, PlaceAddress, Category
+
 
 class PlaceImageInline(admin.TabularInline):
     model = PlaceImage
@@ -18,3 +19,4 @@ class PlaceAdmin(admin.ModelAdmin):
 admin.site.register(Place, PlaceAdmin)
 admin.site.register(PlaceImage)  # Можно зарегистрировать отдельно, если нужно
 admin.site.register(PlaceAddress)  # Можно зарегистрировать отдельно, если нужно
+admin.site.register(Category)
