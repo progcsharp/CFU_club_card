@@ -23,6 +23,14 @@ class Place(models.Model):
         return self.name
 
 
+class PlacePromotionCondition(models.Model):
+    place = models.ForeignKey(Place, related_name='promotion_conditions', on_delete=models.CASCADE)
+    condition_text = models.CharField(max_length=255)  # Поле для текста условия акции
+
+    def __str__(self):
+        return self.condition_text
+
+
 class PlaceImage(models.Model):
     place = models.ForeignKey(Place, related_name='images', on_delete=models.CASCADE)  # Связь с моделью Place
     image = models.ImageField(upload_to='sliders/', blank=True, null=True)  # Поле для изображения слайдера

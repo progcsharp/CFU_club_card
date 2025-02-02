@@ -84,17 +84,18 @@
                     </ul>
                 </div>
                 <!-- Conditions -->
+                {%if place.promotion_conditions.exists%}
                 <div class="bg-[#1d2938] p-6 rounded-lg shadow-md">
                     <h2 class="text-2xl font-bold mb-4 text-white">
                         Условия акции
                     </h2>
                     <ul class="list-disc list-inside text-gray-300">
-                        <li>Условие 1</li>
-                        <li>Условие 2</li>
-                        <li>Условие 3</li>
-                        <li>Условие 4</li>
+                        {%for promotion_conditions in place.promotion_conditions.all%}
+                        <li>{{promotion_conditions.condition_text}}</li>
+                        {%endfor%}
                     </ul>
                 </div>
+                {%endif%}
             </div>
             <!-- Popup btn -->
             <button

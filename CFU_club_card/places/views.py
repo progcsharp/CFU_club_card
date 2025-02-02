@@ -21,6 +21,5 @@ def place_list(request):
 
 def place_detail(request, place_id):
     place = Place.objects.get(pk=place_id)  # Предзагрузка изображений и адресов
-    print(place.addresses)
     return render(request, 'places/place_detail.html', {'place': place})
 
