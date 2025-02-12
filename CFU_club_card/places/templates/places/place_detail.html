@@ -6,53 +6,47 @@
         --swiper-pagination-bullet-inactive-color: #bbb;
         --swiper-pagination-bullet-inactive-opacity: 1;
     }
+
     /* Custom scrollbar */
     ::-webkit-scrollbar {
         width: 8px;
     }
+
     ::-webkit-scrollbar-track {
         background: #f2f3f3;
     }
+
     ::-webkit-scrollbar-thumb {
         background: #1d2938;
         border-radius: 4px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
 </style>
 {%endblock%} {%block content%}
+
 <body class="font-roboto bg-[#f2f3f3]">
     <div class="container max-w-6xl mx-auto p-4">
+        <a
+            href="/places"
+            class="fixed bg-blue-600 hover:bg-blue-600 sm:hover:bg-blue-400 active:bg-blue-400 shadow-[0_0px_8px_4px_rgba(0,0,0,0.4)] transition rounded-full bottom-4 flex items-center justify-center right-4 size-[60px] sm:size-[75px] z-10"
+        >
+            <svg width="25" height="25" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M2.87 7.75009L4.84 9.72009C4.91369 9.78875 4.97279 9.87155 5.01378 9.96355C5.05477 10.0556 5.07681 10.1549 5.07859 10.2556C5.08037 10.3563 5.06184 10.4563 5.02412 10.5497C4.9864 10.6431 4.93026 10.7279 4.85904 10.7991C4.78782 10.8703 4.70299 10.9265 4.6096 10.9642C4.51621 11.0019 4.41618 11.0205 4.31548 11.0187C4.21477 11.0169 4.11546 10.9949 4.02346 10.9539C3.93146 10.9129 3.84866 10.8538 3.78 10.7801L0.53 7.53009L0 7.00009L0.53 6.47009L3.78 3.22009C3.92217 3.08761 4.11022 3.01549 4.30452 3.01892C4.49882 3.02234 4.68421 3.10106 4.82162 3.23847C4.95903 3.37588 5.03775 3.56127 5.04117 3.75557C5.0446 3.94987 4.97248 4.13792 4.84 4.28009L2.87 6.25009H12.75C13.612 6.25009 14.4386 6.5925 15.0481 7.20199C15.6576 7.81149 16 8.63814 16 9.50009C16 10.362 15.6576 11.1887 15.0481 11.7982C14.4386 12.4077 13.612 12.7501 12.75 12.7501H10.75C10.5511 12.7501 10.3603 12.6711 10.2197 12.5304C10.079 12.3898 10 12.199 10 12.0001C10 11.8012 10.079 11.6104 10.2197 11.4698C10.3603 11.3291 10.5511 11.2501 10.75 11.2501H12.75C13.2141 11.2501 13.6592 11.0657 13.9874 10.7375C14.3156 10.4093 14.5 9.96422 14.5 9.50009C14.5 9.03596 14.3156 8.59084 13.9874 8.26265C13.6592 7.93446 13.2141 7.75009 12.75 7.75009H2.87Z"
+                    fill="white"
+                />
+            </svg>
+        </a>
         <!-- Title -->
-        <h1 class="text-4xl font-bold text-center mb-6 text-[#1d2938] relative">
-            <a
-                href="/places"
-                class="absolute bg-[#1d2938] transition hover:bg-blue-600 p-2 rounded-lg shadow-md top-1/2 font-normal flex items-center gap-2 text-white text-lg -translate-y-1/2 left-0"
-            >
-                <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M2.87 7.75009L4.84 9.72009C4.91369 9.78875 4.97279 9.87155 5.01378 9.96355C5.05477 10.0556 5.07681 10.1549 5.07859 10.2556C5.08037 10.3563 5.06184 10.4563 5.02412 10.5497C4.9864 10.6431 4.93026 10.7279 4.85904 10.7991C4.78782 10.8703 4.70299 10.9265 4.6096 10.9642C4.51621 11.0019 4.41618 11.0205 4.31548 11.0187C4.21477 11.0169 4.11546 10.9949 4.02346 10.9539C3.93146 10.9129 3.84866 10.8538 3.78 10.7801L0.53 7.53009L0 7.00009L0.53 6.47009L3.78 3.22009C3.92217 3.08761 4.11022 3.01549 4.30452 3.01892C4.49882 3.02234 4.68421 3.10106 4.82162 3.23847C4.95903 3.37588 5.03775 3.56127 5.04117 3.75557C5.0446 3.94987 4.97248 4.13792 4.84 4.28009L2.87 6.25009H12.75C13.612 6.25009 14.4386 6.5925 15.0481 7.20199C15.6576 7.81149 16 8.63814 16 9.50009C16 10.362 15.6576 11.1887 15.0481 11.7982C14.4386 12.4077 13.612 12.7501 12.75 12.7501H10.75C10.5511 12.7501 10.3603 12.6711 10.2197 12.5304C10.079 12.3898 10 12.199 10 12.0001C10 11.8012 10.079 11.6104 10.2197 11.4698C10.3603 11.3291 10.5511 11.2501 10.75 11.2501H12.75C13.2141 11.2501 13.6592 11.0657 13.9874 10.7375C14.3156 10.4093 14.5 9.96422 14.5 9.50009C14.5 9.03596 14.3156 8.59084 13.9874 8.26265C13.6592 7.93446 13.2141 7.75009 12.75 7.75009H2.87Z"
-                        fill="white"
-                    />
-                </svg>
-                Назад
-            </a>
-            {{place.name}}
-        </h1>
+        <h1 class="text-4xl font-bold text-center mb-6 text-[#1d2938]">{{place.name}}</h1>
         <div class="flex gap-6 flex-wrap justify-center">
             <!-- Slider -->
-            <div
-                class="slider swiper flex-1 basis-1/2 relative min-h-[32rem] rounded-lg min-w-[0]"
-            >
+            <div class="slider swiper flex-1 basis-1/2 relative min-h-[32rem] rounded-lg min-w-[0]">
                 <div class="slides swiper-wrapper flex">
                     {%for image in place.images.all%}
                     <div class="slide swiper-slide relative">
@@ -86,9 +80,7 @@
                 <!-- Conditions -->
                 {%if place.promotion_conditions.exists%}
                 <div class="bg-[#1d2938] p-6 rounded-lg shadow-md">
-                    <h2 class="text-2xl font-bold mb-4 text-white">
-                        Условия акции
-                    </h2>
+                    <h2 class="text-2xl font-bold mb-4 text-white">Условия акции</h2>
                     <ul class="list-disc list-inside text-gray-300">
                         {%for promotion_conditions in place.promotion_conditions.all%}
                         <li>{{promotion_conditions.condition_text}}</li>
@@ -102,13 +94,7 @@
                 class="popup-btn w-full justify-center bg-[#1d2938] transition hover:bg-blue-600 p-2 rounded-lg shadow-md font-normal flex items-center gap-2 text-white text-lg"
             >
                 Получить скидку
-                <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M12.5932 23.2579L12.5822 23.2599L12.5112 23.2949L12.4912 23.2989L12.4772 23.2949L12.4062 23.2599C12.3955 23.2566 12.3875 23.2583 12.3822 23.2649L12.3782 23.2749L12.3612 23.7029L12.3662 23.7229L12.3762 23.7359L12.4802 23.8099L12.4952 23.8139L12.5072 23.8099L12.6112 23.7359L12.6232 23.7199L12.6272 23.7029L12.6102 23.2759C12.6075 23.2653 12.6018 23.2593 12.5932 23.2579ZM12.8582 23.1449L12.8452 23.1469L12.6602 23.2399L12.6502 23.2499L12.6472 23.2609L12.6652 23.6909L12.6702 23.7029L12.6782 23.7099L12.8792 23.8029C12.8918 23.8063 12.9015 23.8036 12.9082 23.7949L12.9122 23.7809L12.8782 23.1669C12.8748 23.1549 12.8682 23.1476 12.8582 23.1449ZM12.1432 23.1469C12.1388 23.1443 12.1335 23.1434 12.1285 23.1445C12.1234 23.1456 12.119 23.1487 12.1162 23.1529L12.1102 23.1669L12.0762 23.7809C12.0768 23.7929 12.0825 23.8009 12.0932 23.8049L12.1082 23.8029L12.3092 23.7099L12.3192 23.7019L12.3232 23.6909L12.3402 23.2609L12.3372 23.2489L12.3272 23.2389L12.1432 23.1469Z"
                         fill="white"
@@ -122,41 +108,14 @@
         </div>
     </div>
     <div class="overlay hidden bg-black bg-opacity-50 fixed inset-0 z-40"></div>
-    <div
-        class="popup hidden fixed inset-0 z-50 flex items-center justify-center"
-    >
-        <div
-            class="popup-container bg-[#1d2938] p-6 rounded-lg shadow-md flex justify-center relative"
-        >
-            <button
-                class="popup-close absolute top-0 right-0 -translate-y-full translate-x-full"
-            >
-                <svg
-                    width="35"
-                    height="35"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                >
-                    <g clip-path="url(#clip0_2334_8)">
-                        <path
-                            d="M2.92984 17.0701C1.97473 16.1476 1.21291 15.0442 0.688821 13.8241C0.164731 12.6041 -0.111131 11.2919 -0.122669 9.96409C-0.134207 8.6363 0.11881 7.3195 0.621618 6.09054C1.12443 4.86158 1.86696 3.74506 2.80589 2.80613C3.74481 1.8672 4.86133 1.12467 6.09029 0.621863C7.31926 0.119054 8.63605 -0.133963 9.96385 -0.122425C11.2916 -0.110887 12.6038 0.164975 13.8239 0.689065C15.0439 1.21316 16.1474 1.97498 17.0698 2.93008C18.8914 4.8161 19.8994 7.34212 19.8766 9.96409C19.8538 12.5861 18.8021 15.0942 16.948 16.9483C15.0939 18.8023 12.5858 19.854 9.96385 19.8768C7.34188 19.8996 4.81586 18.8917 2.92984 17.0701ZM4.33984 15.6601C5.84096 17.1612 7.87692 18.0045 9.99984 18.0045C12.1227 18.0045 14.1587 17.1612 15.6598 15.6601C17.161 14.159 18.0043 12.123 18.0043 10.0001C18.0043 7.87717 17.161 5.8412 15.6598 4.34008C14.1587 2.83895 12.1227 1.99563 9.99984 1.99563C7.87692 1.99563 5.84096 2.83895 4.33984 4.34008C2.83871 5.8412 1.99539 7.87717 1.99539 10.0001C1.99539 12.123 2.83871 14.159 4.33984 15.6601ZM14.2398 7.17008L11.4098 10.0001L14.2398 12.8301L12.8298 14.2401L9.99984 11.4101L7.16984 14.2401L5.75984 12.8301L8.58984 10.0001L5.75984 7.17008L7.16984 5.76008L9.99984 8.59008L12.8298 5.76008L14.2398 7.17008Z"
-                            fill="white"
-                        />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_2334_8">
-                            <rect width="20" height="20" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>
-            </button>
+    <div class="popup hidden fixed inset-0 z-50 flex items-center justify-center">
+        <div class="popup-container bg-[#1d2938] p-6 rounded-lg shadow-md flex flex-col justify-center relative">
             <!-- QR Code -->
             {%if place.promotion_image%}
             <div>
                 <img
                     alt="QR code for the establishment's website or menu"
-                    class="w-48 h-48"
+                    class="rounded-md size-48"
                     height="200"
                     src="{{place.promotion_image.url}}"
                     width="200"
@@ -167,6 +126,11 @@
                 <p class="text-gray-300">{{place.promotion_text}}</p>
             </div>
             {%endif%}
+            <button
+                class="popup-close bg-blue-600 transition hover:bg-blue-600 sm:hover:bg-blue-400 active:bg-blue-400 text-white p-2 rounded-md shadow-md mt-4 w-full"
+            >
+                Закрыть
+            </button>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -189,10 +153,7 @@
         });
 
         document.addEventListener("click", (event) => {
-            if (
-                !popupContainer.contains(event.target) &&
-                popup.classList.contains("opened")
-            ) {
+            if (!popupContainer.contains(event.target) && popup.classList.contains("opened")) {
                 popup.classList.add("hidden");
                 overlay.classList.add("hidden");
                 popup.classList.remove("opened");
